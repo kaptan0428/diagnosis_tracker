@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create a Post </h1>
+<form action="createpost" method="POST">
+{% csrf_token %}
+Title: <select  name="title"><br/>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+</select>
+Content: <br/>
+<textarea cols="35" rows="8" name="content">
+</textarea><br/>
+<input type="submit" value="Post"/>
+</form>
+{{ s }}
+</body>
+</html>

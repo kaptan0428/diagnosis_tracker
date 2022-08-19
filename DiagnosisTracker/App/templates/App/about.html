@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dashboard | Diagnosis Tracker</title>
+</head>
+<style>
+    .containers {
+        margin: 10px auto;
+        text-align: center;
+    }
+    .card-title{
+        font-size: 15px;
+    }
+    .box-container {
+        width: 12rem;
+        height: 14rem;
+        text-align: center;
+        display: inline-block !important;
+        border: 1px solid #dfdfdf;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    #special{
+        width: 95%;
+        height: 14rem;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        text-align: left;
+        padding-left: 2%;
+    }
+    .heading{
+        text-align: center;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" onclick="location.href='main'">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="location.href='about'">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" onclick="location.href='logout'">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <div class="container marketing my-3">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="../../static/App/3.jpg" class="rounded-circle" alt="Rounded Image" width="200" height="200">
+                <h2>Nandan</h2>
+                <p>First Year B.Tech at MNNIT ALLAHABAD Web | Learning Software Development with JAVA, Currently working with C,C++,C#,JS for Competitive Programming and development projects
+                </p>
+                <a class="list-group-item list-group-item-action" href="https://github.com/DE-Nandan">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                https://github.com/DE-Nandan
+                </a>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4">
+                <img src="../../static/App/4.jpg" class="rounded-circle" alt="Rounded Image" width="200" height="200">
+                <h2>Dhanraj</h2>
+                <p>First year student at MNNIT Allahabad(Btech, ECE). As a web developer beginner know Html5, CSS3, JavaScript (ES10).etc As a programmer know C++ and C at Competitive Programming level and know Java, Python. at basic level.</p>
+                <a class="list-group-item list-group-item-action" href="https://github.com/dhanrajchaurasia">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                https://github.com/dhanrajchaurasia
+                </a>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4">
+                <img src="../../static/App/5.jpg" class="rounded-circle" alt="Rounded Image" width="200" height="200">
+                <h2>Ashutosh</h2>
+                <p>First year student at MNNIT Allahabad(Btech, ECE) with basic knowledge of Html, CSS. As a programmer know C++, Python at Competitive Programming level.</p>
+                <a class="list-group-item list-group-item-action" href="https://github.com/ashutoshsuthar2020">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                https://github.com/ashutoshsuthar2020
+                </a>
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+            
+            <br><br><hr class="featurette-divider"><br><br>
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">OUR TEAM, <span class="text-muted">ensures security.</span></h2>
+            <p class="lead">We have have been working hard to bring security to your medical data, with our face-recogination interface for logging-in. </p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 200px; height: 200px;" src="../../static/App/1.jpg" data-holder-rendered="true">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">We, <span class="text-muted">work for your comfort.</span></h2>
+            <p class="lead">With easy log-in interface, facilitates you in those long time-consuming meetings with your doctor. </p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="../../static/App/1.jpg" data-holder-rendered="true" style="width: 200px; height: 200px;">
+          </div>
+        </div>
+
+        <!-- /END THE FEATURETTES -->
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

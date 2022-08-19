@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dashboard | Diagnosis Tracker</title>
+</head>
+<style>
+    .containers {
+        margin: 10px auto;
+        text-align: center;
+    }
+    .card-title{
+        font-size: 15px;
+    }
+    .box-container {
+        width: 12rem;
+        height: 14rem;
+        text-align: center;
+        display: inline-block !important;
+        border: 1px solid #dfdfdf;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    #special{
+        width: 95%;
+        height: 14rem;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        text-align: left;
+        padding-left: 2%;
+    }
+    .heading{
+        text-align: center;
+    }
+</style>
+
+<body>
+     {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="location.href='about'">About</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" onclick="location.href='logout'">Logout</a>
+                </li>
+            </ul>
+            <span class="navbar-text" style="color:#fdfdfd;font-size: 20px;">
+                Welcome to {{ name }}'s Dashboard
+            </span>
+        </div>
+    </nav>
+     {% for i in detail|slice:"0:"%}
+     {% if i.usrname == name %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hii {{ i.fname }} {{ i.lname }}!</strong> You have logged in successfully!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <h3 class="heading">Personal Informations</h3>
+    <div class="containers">
+        <div class="box-container" id="special">
+                <div class="card-body" style="display: inline-block; width: 50%;">
+                <h5 class="card-title" style="font-size: 20px;">Name : {{ i.fname }} {{ i.lname }}</h5>
+                <h5 class="card-title" style="font-size: 20px;">Blood Group : {{ i.bgrp }}</h5>
+                <h5 class="card-title" style="font-size: 20px;">Age : {{ i.age }}</h5>
+                <h5 class="card-title" style="font-size: 20px;">Height : {{ i.ht }}</h5>
+                <h5 class="card-title" style="font-size: 20px;">Weight : {{ i.wt }}</h5>
+            </div>
+            <div class="card-body" style="display: inline-block;">
+                <img src="../../static/App/Training_images/{{ img }}" alt="" width="120px" id="profilepic">
+                <h5 class="card-title" style="font-size: 20px;">Username : {{ i.usrname }}</h5>
+                <h5 class="card-title" style="font-size: 20px;">Email Address : {{ i.usrname }}@gmail.com</h5>
+            </div>
+        </div>
+        <h3 class="heading"><br>Dignosis Informations</h3>
+        <!-- for normal type success instead of danger in the class of span
+            for active type danger instead of success in the class of span -->
+            <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que1 == "Yes" %}
+                <h5 class="card-title">Acquired Respiratory Disease</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Acquired Respiratory Disease</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que2 == "Yes" %}
+                <h5 class="card-title">Angia</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Angia</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que3 == "Yes" %}
+                <h5 class="card-title">Anxiety or Panic</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Anxiety or Panic</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que4 == "Yes" %}
+                <h5 class="card-title">Arithritis</h5>
+                    </div>
+                <span type="text" class="btn btn-danger">Active</span>
+                {% else %}
+                <h5 class="card-title">Arithritis</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que5 == "Yes" %}
+                <h5 class="card-title">Asthama</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Asthama</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container" style="height: 16rem;">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que6 == "Yes" %}
+                <h5 class="card-title">Chronic Obstructory Pulmonary</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Chronic Obstructory Pulmonary</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que7 == "Yes" %}
+                <h5 class="card-title">Congestive Heart Failiure</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Congestive Heart Failiure</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container" style="height: 16rem;">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que8 == "Yes" %}
+                <h5 class="card-title">Degenerative Disc Disease</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Degenerative Disc Disease</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que9 == "Yes" %}
+                <h5 class="card-title">Depression</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Depression</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que10 == "Yes" %}
+                <h5 class="card-title">Diabetes</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Diabetes</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que11 == "Yes" %}
+                <h5 class="card-title">Emphysema</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Emphysema</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que12 == "Yes" %}
+                <h5 class="card-title">Hearing Impairment</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Hearing Impairment</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que13 == "Yes" %}
+                <h5 class="card-title">Heart Attack</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Heart Attack</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que14 == "Yes" %}
+                <h5 class="card-title">Multiple Selerosis</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Multiple Selerosis</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que15 == "Yes" %}
+                <h5 class="card-title">Osteoporosis</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Osteoporosis</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que16 == "Yes" %}
+                <h5 class="card-title">Parkinson's Disease</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Parkinson's Disease</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que17 == "Yes" %}
+                <h5 class="card-title">Peripheral Vascular Disease</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Peripheral Vascular Disease</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que18 == "Yes" %}
+                <h5 class="card-title">Stroke or TIA</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Stroke or TIA</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que19 == "Yes" %}
+                <h5 class="card-title">Gastrointestinal Disease</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Gastrointestinal Disease</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que20 == "Yes" %}
+                <h5 class="card-title">Visual Impairment</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Visual Impairment</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que21 == "Yes" %}
+                <h5 class="card-title">Allergies</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Allergies</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que22 == "Yes" %}
+                <h5 class="card-title">Headaches</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Headaches</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+               {% if i.que23 == "Yes" %}
+                <h5 class="card-title">Head Injury</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                   </div>
+                {% else %}
+                <h5 class="card-title">Head Injury</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que24 == "Yes" %}
+                <h5 class="card-title">Bleeding Disorders</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Bleeding Disorders</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+               {% if i.que25 == "Yes" %}
+                <h5 class="card-title">Bowel Abnormalities</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                   </div>
+                {% else %}
+                <h5 class="card-title">Bowel Abnormalities</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que26 == "Yes" %}
+                <h5 class="card-title">Cancer</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Cancer</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que27 == "Yes" %}
+                <h5 class="card-title">Dizzy or Fainting</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Dizzy or Fainting</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que28 == "Yes" %}
+                <h5 class="card-title">Seizure Disorder</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                   </div>
+                {% else %}
+                <h5 class="card-title">Seizure Disorder</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que29 == "Yes" %}
+                <h5 class="card-title">Fracture</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Fracture</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+               {% if i.que30 == "Yes" %}
+                <h5 class="card-title">Hepatatis A B C</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                   </div>
+                {% else %}
+                <h5 class="card-title">Hepatatis A B C</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que31 == "Yes" %}
+                <h5 class="card-title">Hernia</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Hernia</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que32 == "Yes" %}
+                <h5 class="card-title">High Blood Pressure</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">High Blood Pressure</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que33 == "Yes" %}
+                <h5 class="card-title">Hypoglycemia</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Hypoglycemia</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que34 == "Yes" %}
+                <h5 class="card-title">Medication</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Medication</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que35 == "Yes" %}
+                <h5 class="card-title">Kidney Problems</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Kidney Problems</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que36 == "Yes" %}
+                <h5 class="card-title">Liver/Gallbladder Problems</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Liver/Gallbladder Problems</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que37 == "Yes" %}
+                <h5 class="card-title">Metal Implants</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Metal Implants</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que38 == "Yes" %}
+                <h5 class="card-title">Nausea/Vomitting</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Nausea/Vomitting</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que39 == "Yes" %}
+                <h5 class="card-title">Pacemaker</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Pacemaker</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que40 == "Yes" %}
+                <h5 class="card-title">Pregnancy</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Pregnancy</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que41 == "Yes" %}
+                <h5 class="card-title">Ringing in Your Ears</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Ringing in Your Ears</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que42 == "Yes" %}
+                <h5 class="card-title">Sexual Dysfunction</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Sexual Dysfunction</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que43 == "Yes" %}
+                <h5 class="card-title">Skin Abnormalities</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Skin Abnormalities</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que44 == "Yes" %}
+                <h5 class="card-title">Smoking</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Smoking</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que45 == "Yes" %}
+                <h5 class="card-title">Special Diet Guidelines</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Special Diet Guidelines</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+        <div class="box-container">
+            <div class="card-body">
+                <img src="../../static/App/doctor%20(2).png" alt="" width="100px">
+                {% if i.que46 == "Yes" %}
+                <h5 class="card-title">Tuberculosis</h5>
+                <span type="text" class="btn btn-danger">Active</span>
+                    </div>
+                {% else %}
+                <h5 class="card-title">Tuberculosis</h5>
+                <span type="text" class="btn btn-success">Normal</span>
+            </div>
+                {% endif %}
+        </div>
+         <br><br>
+         <div style="font-weight: bolder">
+         Special Remarks : {{ i.txta }}
+         </div>
+        {% endif %}
+     {% endfor %}
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
